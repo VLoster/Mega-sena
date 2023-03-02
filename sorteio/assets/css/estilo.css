@@ -1,0 +1,282 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;;
+}
+
+body {
+    font-family: 'Anton', sans-serif;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    background-color: #757580;
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {background: #444;}
+
+::-webkit-scrollbar-track {background: #f1f1f1;}
+
+::-webkit-scrollbar-thumb:hover {background: #222;}
+
+h1 {
+    font-size: 40px;
+}
+
+ul {
+    list-style: none;
+}
+
+.container-principal {
+    width: 100%;
+    display: flex;
+}
+
+.container-sorteio {
+    background-color: #331a96;
+    width: 70%;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.container-sequencias {
+    width: 30%;
+    background-color: #fff;
+    height: 100vh;
+}
+
+.container-sequencias > h2 {
+    padding: 30px 10px;
+    background-color: #f0932b;
+    text-align: center;
+    color: #fff;
+}
+
+.linha {
+    display: table;
+    width: 100%;
+}
+
+.coluna-3 {
+    float: left;
+    width: 33%;
+    text-align: center;
+}
+
+#lista-de-numeros,
+#lista-de-numeros-sorteados {
+    margin-bottom: 30px;
+}
+
+#sequencias-numericas {
+    padding-top: 25px;
+    overflow-y: auto;
+    height: calc(100vh - 87px);
+    position: relative;
+    background-color: #ffbe76;
+}
+
+#lista-de-numeros-sorteados ul,
+#lista-de-numeros ul,
+#sequencias-numericas ul {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#lista-de-numeros ul li,
+#lista-de-numeros-sorteados ul li,
+#sequencias-numericas ul li {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #ccc;
+    margin: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #222;
+    background-color: #fff;
+}
+
+#lista-de-numeros-sorteados h4 {
+    text-align: center;
+    color: #fff;
+}
+
+#painel-botao {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#painel-de-andamento {
+    color: #fff;
+    background-color: #22a6b3;
+    font-size: 20px;
+    min-height: 80px;
+    padding: 30px;
+    margin-bottom: 10px;
+}
+
+button {
+    outline: none;
+    padding: 16px 22px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid #eb4d4b;
+    background-color: #eb4d4b;
+    color: #fff;
+    border-radius: 2px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, .3);
+    cursor: pointer;
+}
+
+button:active {
+    box-shadow: inset 2px 2px 3px rgba(0, 0, 0, .3);
+}
+
+.® {
+    background-color:#badc58;
+    margin-top: 20px;
+    text-align: center;
+    clear: both;;
+   
+}
+
+.numero-sorteado {
+    background-color: #95afc0 !important;
+    color: #fff;
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .3) !important;
+    animation: numeroSorteado 1s ease-in;
+}
+
+#painel-sequencias-vencedoras {
+    color: #badc58;
+    animation: numeroSorteado;
+    animation-duration: 500ms;
+}
+
+@keyframes numeroSorteado {
+    from {
+        transform: scale(1.5);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes vencedora {
+    from {
+        transform: scale(1.2);
+        position: fixed;
+        top: 50%;
+        margin-top: -60px;
+        width: 33%;
+        left: 50%;
+        margin-left: -15%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    }
+
+    to {
+        transform: scale(1);
+        position: fixed;
+        top: 50%;
+        margin-top: -60px;
+        width: 33%;
+        left: 50%;
+        margin-left: -15%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    }
+}
+
+#sequencias-numericas ul  {
+    padding: 10px;
+    height: 88px;
+}
+
+#sequencias-numericas h4 {
+    font-weight: 100;
+    text-align: center;
+    color: #fff;
+}
+
+.sequencia-vencedora {
+    background-color: #badc58;
+    animation: vencedora;
+    animation-iteration-count: 4;
+    animation-duration: 1s;
+}
+
+.botao-bloqueado {
+    border-color: #ccc;
+    background-color: #ccc;
+    cursor: not-allowed;
+    box-shadow: inset 3px 3px 3px rgba(0, 0, 0, .3);
+}
+
+@media (max-width: 480px) {
+    body {
+        overflow: visible;
+    }
+
+    h2 {
+        font-size: 0.80em;
+    }
+
+    h1 {
+        font-size: 1em;
+    }
+
+    #painel-de-andamento {
+        padding: 15px;
+    }
+
+    .container-sorteio {
+        width: 100%;
+        height: auto;
+    }
+
+    #lista-de-numeros ul li,
+    #lista-de-numeros-sorteados ul li,
+    #sequencias-numericas ul li {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .container-principal {
+        flex-direction: column;
+    }
+
+    .container-sequencias {
+        width: 100%;
+        height: auto;
+    }
+
+    .sequencia-vencedora {
+        width: 80%;
+        left: 10%;
+        margin-left: 0;
+    }
+
+    #sequencias-numericas div {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    #sequencias-numericas ul  {
+        padding: 5px;
+        height: auto;
+    }
+
+    .container-sequencias > h2 {
+        padding: 20px 10px;
+    }
+}
